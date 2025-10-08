@@ -1,0 +1,57 @@
+/* --- Reset so the fixed bar sits flush to the top --- */
+html, body { margin: 0; padding: 0; }
+
+/* Optional: nicer sizing across the page */
+*, *::before, *::after { box-sizing: border-box; }
+
+/*** HEADER USING FLEXBOX (one copy only) ***/
+.header-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+/* If you actually need these widths, keep them. Otherwise you can delete. */
+.header-item:nth-of-type(1) { width: 40%; }
+.header-item:nth-of-type(2) { width: 60%; text-align: right; }
+
+/*** STEP 4: NAVBAR (one copy only) ***/
+.navbar ul {
+  list-style-type: none;
+  overflow: hidden;        /* contains floated li’s */
+  position: fixed;         /* sticks to top-left of viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0 0 20px 0;      /* margin-bottom value per instructions */
+  padding: 0;
+  background: #0a0a0a;
+  z-index: 1000;           /* above header border */
+}
+
+.navbar ul li {
+  float: left;             /* horizontal layout per assignment */
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  display: block;          /* full clickable area */
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  font-weight: 500;
+}
+
+.navbar ul li a:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* Prevent page content from hiding under the fixed nav (one copy only) */
+body { padding-top: 56px; }  /* adjust if your nav is taller/shorter */

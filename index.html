@@ -1,204 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <link rel="icon" href="img/logo.png">
-        <!-- head
+  <head>
+    <meta charset="utf-8" />
+    <title>The Equity Gala "Real Investing Gala"</title>
+    <link rel="icon" href="img/logo.png" />
 
-        Purpose:
-        - Title used here shows up in the browser tab
-        - Link to the favicon (small image that appears in the browser tab)
-        - Link to the CSS file (used to style the webpage)
+    <style>
+      /* --- Reset so the fixed bar sits flush to the top --- */
+      html, body { margin: 0; padding: 0; }
+      *, *::before, *::after { box-sizing: border-box; }
 
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 2 (STRETCH FEATURE) (favicon)
-        - [ ] Any time after
-        -->
-        <title>The Equity Gala "Real Investing Gala"</title>
-        <style>
-    body {
-  background-color: #fff9f2;
-  font-family: "Georgia", serif;
-  color: #000000;
-  font-size: 18px;
-}
+      /* --- Your base styles --- */
+      body {
+        background-color: #fff9f2;
+        font-family: "Georgia", serif;
+        color: #000000;
+        font-size: 18px;
+      }
+      h1 {
+        color: #76220b;
+        font-size: 36px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .important {
+        background-color: #76220b;
+        color: #fff9f2;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+      }
+      #interesting {
+        border: 2px solid #76220b;
+        padding: 15px;
+        background-color: #fff9f2;
+        color: #000000;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      }
 
-h1 {
-  color: #76220b;
-  font-size: 36px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+      /*** HEADER USING FLEXBOX (one copy only) ***/
+      .header-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 10px 20px;
+        background: #fff;
+        border-bottom: 1px solid #ccc;
+      }
+      .header-item:nth-of-type(1) { width: 40%; }
+      .header-item:nth-of-type(2) { width: 60%; text-align: right; }
 
-.important {
-  background-color: #76220b;
-  color: #fff9f2;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-}
+      /*** STEP 4: NAVBAR ***/
+      .navbar ul {
+        list-style-type: none;
+        overflow: hidden;        /* contains floated li’s */
+        position: fixed;         /* sticks to top-left of viewport */
+        top: 0;
+        left: 0;
+        width: 100%;
+        margin: 0 0 20px 0;      /* margin-bottom value per instructions */
+        padding: 0;
+        background: #0a0a0a;
+        z-index: 1000;
+      }
+      .navbar ul li {
+        float: left;             /* horizontal layout */
+        margin: 0 10px;
+      }
+      .navbar ul li a {
+        display: block;          /* full clickable area */
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        padding: 14px 18px;
+        font-weight: 500;
+      }
+      .navbar ul li a:hover {
+        background: #d4af37;
+        color: #000;
+      }
 
-#interesting {
-  border: 2px solid #76220b;
-  padding: 15px;
-  background-color: #fff9f2;
-  color: #000000;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
+      /* Keep page content from hiding under the fixed nav */
+      body { padding-top: 56px; }  /* adjust if your nav is taller */
 
- 
-</style>
-        
-    </head>
-    
-    <body>
-    
-        <!-- navbar [PLACEHOLDER] [ADDED IN UNIT 4] -->
+      /* Just to make sections breathe a bit */
+      section { padding: 24px 20px; }
+    </style>
+  </head>
 
-        <!-- headings
+  <body>
+    <div class="header-container">
+      <div class="header-item"><!-- (Logo or left content here if needed) --></div>
+      <div class="header-item">
+        <nav class="navbar">
+          <ul>
+            <li><a href="#about">About the Event</a></li>
+            <li><a href="#schedule">Event Schedule</a></li>
+            <li><a href="#links">Links</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 
-        Purpose:
-        - Main header section of the webpage
-        - Contains the title, subtitle, image, and key buttons for the webpage
+    <img id="header-img" src="img/logo.png" width="200" height="200" alt="Equity Gala logo" />
+    <h1>The Equity Gala</h1>
+    <h2>Join us for The Equity Gala: Building Wealth, One Property at a Time. 
+      <br>This exclusive evening brings together aspiring and experienced real estate investors, industry professionals, and community leaders for a night of insight, inspiration, and opportunity.<br>
+       Whether you're looking to grow your portfolio, make key connections, or learn from top minds in real estate, this event is your gateway to long-term success. Come network, learn, and celebrate the power of property investment.</h2>
+    <button type="button">Buy Tickets</button>
+    <button type="button">Learn More</button>
 
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 3 (REQUIRED FEATURE) 
-        - [ ] Project 4 (REQUIRED FEATURE) 
-        - [ ] Any time after
-        -->
-        <img id="header-img" src="img/logo.png" width="200" height="200"/>
-        <h1>The Equity Gala</h1>
-        <h2>Building Wealth, One Property at a Time.</h2>
-        <button type="button">Buy Tickets</button>
-        <button type="button">Learn More</button>
+    <!-- ABOUT (put content inside the section so #about scrolls correctly) -->
+    <section id="about">
+      <h2>About the Event</h2>
+      <p>
+        Join us for The Equity Gala: Building Wealth, One Property at a Time...
+      </p>
 
-        
-        <!-- about
+      <h3>What to Expect</h3>
+      <h4>Tag Line</h4>
+      <ul>
+        <li><i>Building Wealth</i></li>
+        <li><i>Networking</i></li>
+        <li><i>Entertainment</i></li>
+      </ul>
+    </section>
 
-        Purpose:
-        - Section for general info about the event
-        - Contains a video, description, and key points about the event
+    <!-- SCHEDULE (removed invalid <id>=Event tag) -->
+    <section id="schedule">
+      <h2>Event Schedule</h2>
 
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 2 (STRETCH FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
-        <h2>About the Event</h2>
-        <p>Join us for The Equity Gala: Building Wealth, One Property at a Time. This exclusive evening brings together aspiring and experienced real estate investors, industry professionals, and community leaders for a night of insight, inspiration, and opportunity. Whether you're looking to grow your portfolio, make key connections, or learn from top minds in real estate, this event is your gateway to long-term success. Come network, learn, and celebrate the power of property investment.</p>
+      <img
+        src="img/schedule.png"
+        width="400"
+        height="600"
+        alt="Schedule poster for The Equity Gala" />
 
-        <h3>What to Expect</h3>
-        <h4>Tag Line</h4>
-        <ul>
-            <li> <b></b> <i>Building Wealth</i></li>
-            <li> <b></b> <i>Networking</i></li>
-            <li> <b></b> <i>Entertainment</i></li>
-        </ul>
+      <h3><strong>The Equity Gala – Event Schedule</strong></h3>
+      <p><strong>5:30 PM – Guest Arrival & Check-In</strong><br>Welcome drinks, valet service, and elegant photo ops upon entry.</p>
+      <p><strong>6:00 PM – Networking & Hors d’Oeuvres</strong><br>Mingle with fellow investors, industry professionals, and sponsors over curated appetizers.</p>
+      <p><strong>6:45 PM – Opening Remarks</strong><br>A short welcome … <em>“Building Wealth, One Property at a Time.”</em></p>
+      <p><strong>7:00 PM – Keynote Speaker: The Power of Equity</strong><br>An inspiring talk from a renowned real estate investor or wealth strategist.</p>
+      <p><strong>7:45 PM – Dinner Service</strong><br>Three-course plated meal served with soft music and ambient lighting.</p>
+      <p><strong>8:30 PM – Panel Discussion: Real Estate in 2025 and Beyond</strong><br>Live Q&A with experts in commercial, residential, and multifamily investments.</p>
+      <p><strong>9:15 PM – Awards & Recognition</strong><br>Honoring standout contributors and rising stars in the real estate community.</p>
+      <p><strong>9:45 PM – Closing Remarks & Call to Action</strong><br>Final thoughts and next steps.</p>
+      <p><strong>10:00 PM – After-Hours Social</strong><br>Optional mixer for continued networking.</p>
+    </section>
 
-        <!-- schedule
+    <!-- Gala Image (avoid spaces in filenames if possible) -->
+    <img
+      src="img/img%20for%20gala%20website%20.jpg"
+      width="600"
+      height="600"
+      alt="Gala scene" />
+    <h3>The Gala Last Year</h3>
+    <p>
+      The audience, composed of well-dressed men in tuxedos and women in elegant evening gowns
+      <span style="color:#000000;"><em>(mostly black and ivory tones)</em></span>, stands attentively, holding champagne flutes.
+      The warm ambient lighting from ornate <strong>crystal chandeliers</strong> and <strong>wall sconces</strong> bathes the room in a soft golden glow.
+    </p>
 
-        Purpose:
-        - Section for specific info about the event's schedule
-        - Contains images and descriptions of each activity
+    <!-- LINKS -->
+    <section id="links">
+      <h2>Links</h2>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/CJfqqXTZBMg?si=xoVod1DN5c84_eh1"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
 
-        When To Modify:
-        - [ ] Project 2 (REQUIRED FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
-        <h2>Event Schedule</h2>
-
-        <img alt="6:00 PM – Networking & Hors d’Oeuvres
-Mingle with fellow investors, industry professionals, and sponsors over curated appetizers.
-
-6:45 PM – Opening Remarks
-A short welcome by the host/emcee and introduction to the evening's theme: <em>“Building Wealth, One Property at a Time.”</em></p>
-
-7:00 PM – Keynote Speaker: The Power of Equity
-An inspiring talk from a renowned real estate investor or wealth strategist.
-
-7:45 PM – Dinner Service
-Three-course plated meal served with soft music and ambient lighting.
-8:30 PM – Panel Discussion: Real Estate in 2025 and Beyond
-Live Q&A with experts in commercial, residential, and multifamily investments.
-
-9:15 PM – Awards & Recognition
-Honoring standout contributors and rising stars in the real estate community.
-
-9:45 PM – Closing Remarks & Call to Action
-Final thoughts and next steps for attendees to continue building wealth together.
-
-10:00 PM – After-Hours Social
-Optional rooftop or lounge mixer for continued networking in a relaxed setting." src="img/schedule.png" width="400" height="600"/>
-        <h3><strong>The Equity Gala – Event Schedule</strong></h3>
-        <p><strong>5:30 PM – Guest Arrival & Check-In</strong><br>
-Welcome drinks, valet service, and elegant photo ops upon entry.</p>
-
-<p><strong>6:00 PM – Networking & Hors d’Oeuvres</strong><br>
-Mingle with fellow investors, industry professionals, and sponsors over curated appetizers.</p>
-
-<p><strong>6:45 PM – Opening Remarks</strong><br>
-A short welcome by the host/emcee and introduction to the evening's theme: <em>“Building Wealth, One Property at a Time.”</em></p>
-
-<p><strong>7:00 PM – Keynote Speaker: The Power of Equity</strong><br>
-An inspiring talk from a renowned real estate investor or wealth strategist.</p>
-
-<p><strong>7:45 PM – Dinner Service</strong><br>
-Three-course plated meal served with soft music and ambient lighting.</p>
-
-<p><strong>8:30 PM – Panel Discussion: Real Estate in 2025 and Beyond</strong><br>
-Live Q&A with experts in commercial, residential, and multifamily investments.</p>
-
-<p><strong>9:15 PM – Awards & Recognition</strong><br>
-Honoring standout contributors and rising stars in the real estate community.</p>
-
-<p><strong>9:45 PM – Closing Remarks & Call to Action</strong><br>
-Final thoughts and next steps for attendees to continue building wealth together.</p>
-
-<p><strong>10:00 PM – After-Hours Social</strong><br>
-Optional rooftop or lounge mixer for continued networking in a relaxed setting.</p>
-            
-        <img alt="Image description" src="img/img for gala website .jpg" width="600" height="600"/>
-        <h3>The Gala Last Year </h3>
-        <p><p>
-The audience, composed of well-dressed men in tuxedos and women in elegant evening gowns 
-<span style="color:#000000;"><em>(mostly black and ivory tones)</em></span>, stands attentively, holding champagne flutes.<br><br>
-<br><br>
-The warm ambient lighting from ornate <strong>crystal chandeliers</strong> and <strong>wall sconces</strong> 
-bathes the room in a soft golden glow, giving the image a <em>timeless and refined aura</em>.
-</p>
-
-
-        
-
-        <!-- rsvp [PLACEHOLDER] [ADDED IN UNIT 6] -->
-        <!-- success modal [PLACEHOLDER] [ADDED IN UNIT 9] --> 
-
-        <!-- links
-
-        Purpose:
-        - Links to other resources related to the event
-
-        When To Modify:
-        - [ ] Project 2 (STRETCH FEATURE) 
-        - [ ] Project 4 (STRETCH FEATURE) 
-        - [ ] Any time between / after
-        --> 
-        <h2>Links</h2>
-         <iframe width="560" height="315" src="https://www.youtube.com/embed/CJfqqXTZBMg?si=xoVod1DN5c84_eh1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-        <!-- This <a> block is one link.  Copy and paste all 6 lines to create another link. -->
-        <a class="block" href="https://mohsinsahmed.github.io/html5up-hyperspace/">
-            <article>
-                <h3>Learn more about our Founder</h3>
-                <p></p>
-            </article>
-        </a>
-            
-        <!-- footer [PLACEHOLDER] [ADDED IN UNIT 3] -->
-        <!-- script [PLACEHOLDER] [ADDED IN UNIT 5] -->
-
-    </body>
+      <a class="block" href="https://mohsinsahmed.github.io/html5up-hyperspace/">
+        <article>
+          <h3>Learn more about our Founder</h3>
+          <p></p>
+        </article>
+      </a>
+    </section>
+  </body>
 </html>
