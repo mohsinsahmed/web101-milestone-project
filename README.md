@@ -1,1 +1,1 @@
-https://imgur.com/a/NgBJgjO
+gif of website: https://imgur.com/a/NgBJgjO
